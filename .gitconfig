@@ -1,0 +1,9 @@
+[color]
+	ui = auto
+	branch = auto
+	status = auto
+	diff = auto
+
+[user]
+	name = Cristian Maureira Fredes
+	email = cmaureir@csrg.inf.utfsm.cl

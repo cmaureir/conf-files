@@ -1,0 +1,252 @@
+! Emacs settings
+macs*bitmapIcon: on
+
+! X niceness
+!Xft.dpi: 96
+Xft.hinting: 1
+Xft.hintstyle: hintfull
+Xcursor.size: 16
+Xcursor.theme: Oxygen_White
+
+! Fonts
+!aterm*font:             "-*-proggy clean-*-*-*-*-*-*-*-*-*-*-*"
+!aterm*boldFont:         "-*-proggy clean-*-*-*-*-*-*-*-*-*-*-*"
+XTerm*faceName:    Bitstream Vera Sans Mono:style=Roman
+XTerm*boldFont:         Bitstream Vera Sans Mono:style=Roman
+
+! Xterm settings (aterm/rxvt inherits, urxvt does not)
+XTerm*loginshell:       true
+XTerm*faceSize:      10
+XTerm*scrollBar:   false
+! Don't scroll output when the paged up
+XTerm*scrollTtyOutput:   false
+XTerm*background:   grey10
+XTerm*foreground:   WhiteSmoke
+XTerm*cursorColor:   red
+! Don't remember...
+XTerm*charClass:   33:48,37:48,45-47:48,64:48
+! No bold chars
+XTerm*boldMode:         false
+! Makes scrolling faster allowing it to jump whole screens at a time
+XTerm*jumpScroll:   true
+! Makes scrolling faster allowing it to skip over content when scrolling fast
+XTerm*multiScroll:   true
+XTerm*autoWrap:      true
+XTerm*cursorBlink:   true
+! Fixes delete problems in emacs and creates problems in vim
+!XTerm*deleteIsDEL:   true
+! How much scrollback to save
+XTerm*saveLines:   1000
+! This fixes odd behavior with alt
+XTerm*eightBitInput:   false
+! Not sure what this does
+XTerm*metaSendsEscape:   true
+
+XTerm*color0:           #000000
+XTerm*color1:           #CD0000
+XTerm*color2:           #00CD00
+XTerm*color3:           #CDCD00
+XTerm*color4:           #4B4BED
+XTerm*color5:           #CD00CD
+XTerm*color6:           #00CDCD
+XTerm*color7:           #b3b3b3
+XTerm*color8:           #404040
+XTerm*color9:           #FF0000
+XTerm*color10:          #49DC49
+XTerm*color11:          #FFFF00
+XTerm*color12:          #5858E5
+XTerm*color13:          #FF00FF
+XTerm*color14:          #00FFFF
+XTerm*color15:          #FFFFFF
+aterm*foreground: #FF7F00
+#aterm*scrollColor: black
+#aterm*transparent: true
+aterm*font: 6x12
+aterm*name: Mirage
+aterm*pasteMouseOutside: true
+aterm*loginShell: true
+aterm*scrollBar: true
+#aterm* troughColor: black
+aterm*transpscrollbar: true
+#aterm*scrollBar_floating: true
+aterm*saveLines: 1200
+aterm*borderWidth: 0
+
+#aterm*color15: green
+#aterm*color15: blue
+aterm*colorBD: white
+aterm*colorUL: white
+aterm*troughColor: black
+#aterm*fading: 50
+#aterm*textType: xor
+#aterm*reverseVideo: true
+aterm*font:*-*-fixed-medium-r-normal--*-120-*-*-*-*-iso8859-1
+aterm*boldFont:*-*-fixed-bold-r-normal--*-*-120-*-*-*-*-iso8859-1
+#aterm*tinting: Magenta
+aterm*tintingType: equiv,
+aterm*scrollBar_right: true
+# Borderless Aterm, this is not documented anywhere but it workd
+#Gentoo's aterm ebuild contains the borderless patch.
+#aterm*borderLess: true
+#aterm colors
+aterm*color0:      #000000
+aterm*color1:      #9E1828
+aterm*color2:      #AECE92
+aterm*color3:      #968A38
+#aterm*color4:      #414171 --> comments are too fucking dark
+aterm*color4:      #00FA9A
+aterm*color5:      #96C359
+aterm*color6:      #418179
+aterm*color7:      #BEBEBE
+aterm*color8:      #666666
+#aterm*color9:      #cf6171  --> kind of fuzzy, bad for the eyes
+aterm*color9:      #FFAEB9
+aterm*color10:     #C5F779
+#aterm*color11:    Don't ask why, but i cant set this one, odd indeed
+#aterm*color11:     #968A38
+
+aterm*color12:     skyblue
+#aterm*color12:     #00FA9A
+#aterm*color13:     #CF9EBE
+#aterm*color14:     #71BEBE
+aterm*color15:     green 
+
+! urxvt settings & colors
+!
+# urxvt*background:       black 
+# urxvt*cursorBlink:      true
+# urxvt*font:             xft:DejaVu Sans Mono:pixelsize=8
+# urxvt*boldFont:         xft:DejaVu Sans Mono:pixelsize=9
+# urxvt*foreground:       white
+# urxvt*geometry:         130x40
+# urxvt*shading:          20
+# urxvt*fading:           30
+# urxvt*transparent:      yes
+
+urxvt*foreground:       grey90
+urxvt*cursorBlink:      true
+urxvt*depth: 32
+urxvt*font:             xft:DejaVu Sans Mono:pixelsize=9
+urxvt*boldFont:         xft:DejaVu Sans Mono:pixelsize=10
+urxvt*background: rgba:0000/0000/0000/dddd
+urxvt*geometry:         90x30
+urxvt*shading:          20
+#urxvt*fading:           30
+urxvt*fading:           50
+urxvt*transparent:      false
+
+
+
+
+
+! ! V
+! urxvt*inheritPixmap:   true
+ urxvt*internalBorder:   0
+ urxvt*loginShell:       true
+ urxvt*saveLines:        4000
+ urxvt*scrollBar:        false
+! ! V
+ urxvt*termName:         rxvt
+! ! V
+ uurxvt*tintColor:       #ffffff
+ urxvt*underlineColor:   #86a2be
+ uRxvt.perl-ext-common:      default,matcher
+ uRxvt.matcher.button:       1
+ uRxvt.matcher.pattern.1:    \bwww\.[\w-]\.[\w./?&@#-]*[\w/-]
+ uRxvt*urlLauncher:        firefox
+ urxvt.perl-ext-common:      matcher
+!
+! !black text
+ urxvt*color0:           #242424
+ urxvt*color8:           #cdb5cd
+!
+! !red text
+! urxvt*color1:           #bf7979
+! urxvt*color9:           #f4a45f
+!
+! !red text
+  urxvt*color1:           #c11b17
+  urxvt*color9:           #c11b17
+!
+
+!
+! !green text
+ urxvt*color2:           #97b26b
+ urxvt*color10:          #c5f779
+!
+! !yellow text
+ urxvt*color3:           #cdcda1
+ urxvt*color11:          #ffffaf
+!
+! !blue text
+ urxvt*color4:           #86a2be
+ urxvt*color12:          #98afd9
+!
+! !magenta text
+ urxvt*color5:           #d9b798
+ urxvt*color13:          #d7d998
+!
+! !cyan text
+ urxvt*color6:           #a1b5cd
+ urxvt*color14:          #a1b5cd
+!
+! !white
+ urxvt*color7:           #ffffff
+ urxvt*color15:          #dedede
+! gameterm settings & colors
+!
+ gameterm*background:       #242424
+ gameterm*cursorBlink:      true
+ gameterm*font:             xft:DejaVu Sans Mono:pixelsize=10
+ gameterm*boldFont:         xft:DejaVu Sans Mono:pixelsize=10
+ gameterm*foreground:       white
+ gameterm*geometry:         80x25
+! ! V
+ gameterm*inheritPixmap:   true
+ gameterm*internalBorder:   0
+ gameterm*loginShell:       true
+ gameterm*saveLines:        4000
+ gameterm*scrollBar:        false
+! ! V
+ gameterm*shading:         30
+ gameterm*termName:         rxvt
+! ! V
+ !gameterm*tintColor:       #ffffff
+ gameterm*underlineColor:   #86a2be
+ URxvt.perl-ext-common:      default,matcher
+ URxvt.matcher.button:       1
+ URxvt.matcher.pattern.1:    \bwww\.[\w-]\.[\w./?&@#-]*[\w/-]
+ URxvt*urlLauncher:        firefox
+ gameterm.perl-ext-common:      matcher
+!
+! !black text
+ gameterm*color0:           #242424
+ gameterm*color8:           #cdb5cd
+!
+! !red text
+ gameterm*color1:           #bf7979
+ gameterm*color9:           #f4a45f
+!
+! !green text
+ gameterm*color2:           #97b26b
+ gameterm*color10:          #c5f779
+!
+! !yellow text
+ gameterm*color3:           #cdcda1
+ gameterm*color11:          #ffffaf
+!
+! !blue text
+ gameterm*color4:           #86a2be
+ gameterm*color12:          #98afd9
+!
+! !magenta text
+ gameterm*color5:           #d9b798
+ gameterm*color13:          #d7d998
+!
+! !cyan text
+ gameterm*color6:           #a1b5cd
+ gameterm*color14:          #a1b5cd
+!
+! !white
+ gameterm*color7:           #ffffff
+ gameterm*color15:          #dedede
