@@ -1,14 +1,20 @@
+" Pathogen
+call pathogen#infect()
+
+" Options
 syntax on
-set cmdheight=1
-set encoding=utf-8
-set termencoding=utf-8
-set clipboard=unnamed
-set ts=4
-" set virtualedit=all
-set fileformats=unix,dos,mac
-" set mouse=a
-set hlsearch
-set incsearch
-set ignorecase
-set smartcase
-" set number
+set hls is
+set tabstop=4 shiftwidth=4 expandtab
+set ignorecase smartcase
+set virtualedit=block
+set list listchars=trail:◀,tab:··
+
+
+" Programming bracket fixed
+autocmd BufRead *.c,*.h,*.cpp,*.pl,*.java,*.css imap {} {<Return>}<Esc>O
+
+" Remove blank-spaces at EOL
+autocmd BufWritePre *.py,*.c,*.h,*.cpp :%s,\s\+$,,e
+
+" CUDA file recognition
+au BufNewFile,BufRead *.cu set ft=cu
