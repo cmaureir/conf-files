@@ -8,6 +8,10 @@ if [ -f /etc/bash_completion ]; then
         . /etc/bash_completion
 fi
 
+if [ -f /usr/share/git/completion/git-completion.bash ]; then
+        . /usr/share/git/completion/git-completion.bash
+fi
+
 function up(){
     yaourt -Syy
     yaourt -Su --noconfirm
