@@ -4,8 +4,8 @@ if [ -f /etc/bashrc ]; then
     . /etc/bashrc
 fi
 
-if [ -f /etc/bash_completion ]; then
-        . /etc/bash_completion
+if [ -f /usr/share/git/completion/git-completion.bash ]; then
+	. /usr/share/git/completion/git-completion.bash
 fi
 
 function up(){
@@ -60,7 +60,11 @@ alias rm='rm -i'
 alias mv='mv -i'
 alias cp='cp -i'
 alias vi='vim'
-
+alias sphinx-build='sphinx-build2'
+function sss(){
+eval $(ssh-agent)
+ssh-add ~/.ssh/personal_key
+}
 export PATH=$PATH:/opt/mpich2/bin/
 
 export PS1="\[$BLANCO\]\h\[$ROJO\]\w\[$BLANCO $AZUL \$(__git_ps1 '%s ')\[$ROJO\]\]>>\[$VOLVER\]"
