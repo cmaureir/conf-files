@@ -16,5 +16,6 @@
     df = diff
     pul = pull
     puhs = push
+
 [push]
-	default = simple
+    default = simple
