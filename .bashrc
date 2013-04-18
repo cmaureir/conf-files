@@ -1,7 +1,6 @@
 if [ -f /etc/bashrc ]; then
     . /etc/bashrc
 fi
-source /usr/share/git/completion/git-prompt.sh
 
 function up(){
     yaourt -Syy
@@ -50,7 +49,24 @@ alias mv="mv -i"
 alias cp="cp -i"
 alias vi="vim"
 
-export PS1="${BLANCO}\h${ROJO}\w${BLANCO} ${AZUL}$(__git_ps1 "%s ")${ROJO}\\$ ${VOLVER}"
-#export PYTHONPATH=${PYTHONPATH}:/home/cmaureir/amuse/amuse-6.0/test:/home/cmaureir/amuse/amuse-6.0/src
+
+if [ -f /usr/share/git/completion/git-prompt.sh ]; then
+    source /usr/share/git/completion/git-prompt.sh
+fi
+
+if hash __git_ps1 2>/dev/null; then
+    export PS1="${BLANCO}\h${ROJO}\w${BLANCO} ${AZUL}$(__git_ps1 "%s ")${ROJO}\\$ ${VOLVER}"
+else
+    export PS1="${BLANCO}\h${ROJO}\w${BLANCO} ${ROJO}\\$ ${VOLVER}"
+fi
+
+export PYTHONPATH=${PYTHONPATH}:/home/cmaureir/amuse/:/home/cmaureir/amuse/bin/
 #export AMUSE_DIR=/home/cmaureir/Downloads/amuse/amuse-6.0
 alias sphinx-build='sphinx-build2'
+alias android-connect="sudo mtpfs -o allow_other /media/nexus4"
+alias android-disconnect="sudo umount /media/nexus4"
+
+export PATH=$PATH:~/.rvm/bin # Add RVM to PATH for scripting
+export PATH=$PATH:~/.gem/ruby/1.9.1/bin # Add RVM to PATH for scripting
+export LS_COLORS="ow=30;42:di=00;34"
+
