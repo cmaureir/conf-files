@@ -5,17 +5,18 @@
     diff = auto
 
 [user]
-    name = Cristian Maureira Fredes
-    email = cmaureir@csrg.inf.utfsm.cl
+    name = Cristian Maureira-Fredes
+    email = cmaurei@aei.mpg.de
 
 [alias]
-    st = status
+    st = status -s
     ci = commit
     br = branch
     co = checkout
     df = diff
     pul = pull
     puhs = push
-
+    lg = log --decorate --graph --oneline
+	today = log --since=midnight --author='Cristian Maureira Fredes <cmaureir@csrg.inf.utfsm.cl>' --oneline
 [push]
-    default = simple
+	default = simple
