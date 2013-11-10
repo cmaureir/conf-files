@@ -129,9 +129,8 @@ alias bm="vim"
 
 # Prompt
 PS1=""
-PS1+='$(__stat) '$OFF
-PS1+="$WHITE\h$OFF:$RED\w$OFF "
-PS1+='$(__git_prompt)'$OFF
-PS1+="$GREEN\$$OFF "
+PS1+='\[$(__stat)\]'"\[$OFF\] "
+PS1+="\[$WHITE\]\h\[$OFF\]:\[$RED\]\w\[$OFF\] "
+PS1+='$(__git_prompt)'"\[$OFF\]"
+PS1+="\[$GREEN\]\$\[$OFF\] "
 export PS1
-
