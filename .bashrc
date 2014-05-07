@@ -63,6 +63,10 @@ function __prompt_command()
 }
 PROMPT_COMMAND=__prompt_command
 
+function installed(){
+    pacman -Qei | awk '/^Name/ { name=$3 } /^Groups/ { if ( $3 != "base" && $3 != "base-devel" ) { print name } }'
+}
+
 # Update system
 function up(){
     yaourt -Syy
@@ -72,13 +76,13 @@ function up(){
 
 # Look for orphans packages in the system
 function orphans(){
-    orp=$(pacman -Qtdq)
-    if [ ! -z "$orp"];then
-        print $orp
+    orp=$(yaourt -Qtdq)
+    if [[ ! -z "$orp" ]];then
+        echo $orp
         echo "Remove? [y/n]";
         read ans
-        if $ans ==  'Y' || $ans == 'y';then
-            pacman -Rscn $(pacman -Qtdq)
+        if [[ $ans ==  'Y' || $ans == 'y' ]];then
+            yaourt -Rscn $(pacman -Qtdq)
         else
             echo "Leaving"
         fi
@@ -106,12 +110,12 @@ function clean-swp(){
 export HISTSIZE=1000000
 export HISTFILESIZE=10000
 export HISTCONTROL=ignoredups
-export PATH=$PATH:/home/cmaureir/bin:/home/cmaureir/.amuse/amuse-8.1-Linux_x86_64/
+export PATH=$PATH:~/bin
 
 export GIT_PS1_SHOWDIRTYSTATE=1
 export HISTIGNORE="&:[bf]g:exit"
 export VISUAL=vim
-export BROWSER=firefox
+export BROWSER=chromium
 export PAGER=less
 export MANPAGER=less
 export EDITOR=vim
@@ -137,7 +141,10 @@ alias mv="mv -i"
 alias cp="cp -i"
 
 # Fixing errors on calling vim
-alias vi="vim"
-alias vm="vim"
-alias bim="vim"
-alias bm="vim"
+alias vi="nvim"
+alias vm="nvim"
+alias bim="nvim"
+alias bm="nvim"
+
+## Python
+#alias python='python2'
