@@ -25,8 +25,10 @@ function __prompt_command()
     EXIT="$?"
     PS1=""
 
-    #if [ $EXIT -eq 0 ]; then PS1+="\[$GREEN\][\!]\[$OFF\] "; else PS1+="\[$RED\][\!]\[$OFF\] "; fi
     if [ $EXIT -eq 0 ]; then PS1+="\[$GREEN\][✔]\[$OFF\] "; else PS1+="\[$RED\][✘]\[$OFF\] "; fi
+    #happy=$'\u263A '
+    #sad=$'\u2639 '
+    #if [ $EXIT -eq 0 ]; then PS1+="[\[$GREEN\]\[$happy\]\[$OFF\]]"; else PS1+="[\[$RED\]\[$sad\]\[$OFF\]]"; fi
 
     # if logged in via ssh shows the ip of the client
     if [ -n "$SSH_CLIENT" ]; then PS1+="\[$YELLOW\]("${SSH_CLIENT%% *}")\[$OFF\]"; fi
@@ -148,3 +150,9 @@ alias bm="nvim"
 
 ## Python
 #alias python='python2'
+
+# Skype
+export  PULSE_LATENCY_MSEC=60
+
+# GSR
+export PYTHONPATH=$PYTHONPATH:/home/cmaureir/repos/gadget-snapshot-reader
