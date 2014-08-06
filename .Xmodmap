@@ -3,4 +3,3 @@ keycode 122 = XF86AudioLowerVolume
 keycode 121 = XF86AudioMute
 keycode 157 = XF86MonBrightnessUp
 keycode 156 = XF86MonBrightnessDown
-

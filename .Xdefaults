@@ -1,53 +1,63 @@
-Xft.hinting: 1
-Xft.hintstyle: hintfull
+Xft.dpi:        75
+Xft.antialias:  true
+Xft.rgba:       rgb
+Xft.hinting:    true
+Xft.autohint:  true
+Xft.hintstyle:  hintfull
+
+
 Xcursor.size: 16
-Xcursor.theme: Oxygen_White
 
-
-! rxvt-unicode ---------------------------------------------------------------
-
-urxvt*foreground:        grey90
-urxvt*cursorBlink:       true
-urxvt*depth:             32
-urxvt*font:              xft:Inconsolata:pixelsize=14
-urxvt*boldFont:          xft:Inconsolata:pixelsize=14
-urxvt*background:        #000000
-urxvt*geometry:          90x30
-urxvt*loginShell:        true
-urxvt*saveLines:         4000
-urxvt*scrollBar:         false
-urxvt*termName:          rxvt
-urxvt*tintColor:         #ffffff
-urxvt*underlineColor:    #86a2be
-urxvt*perl-ext-common:   default,matcher
-urxvt*matcher.button:    1
-urxvt*matcher.pattern.1: \bwww\.[\w-]\.[\w./?&@#-]*[\w/-]
-urxvt*urlLauncher:       firefox
-urxvt*iconFile:          /usr/share/icons/oxygen/16x16/apps/utilities-terminal.png
-urxvt*termName:          screen-256color
-urxvt.perl-ext-common:   default,tabbedex
+URxvt*termName:          URxvt
+URxvt*imLocale:          en_US.UTF-8
+URxvt*foreground:        grey90
+URxvt*cursorBlink:       true
+URxvt*depth:             32
+URxvt*font:              xft:Droid Sans Mono:style=Regular:antialias=true;pixelsize=11, \
+                         xft:Inconsolata for Powerline:antialias=true;size=11,\
+                         xft:DejaVu Sans Mono:style=Book:antialias=true:size=11
+URxvt*boldFont:          xft:Droid Sans Mono:antialias=true;size=13, \
+                         xft:Inconsolata for Powerline:antialias=true;size=13, \
+                         xft:DejaVu Sans Mono:style=Book:antialias=true:size=13
+URxvt*background:        #242424
+URxvt*geometry:          90x30
+URxvt.inheritPixmap:     false
+URxvt*letterSpace:       -1
+URxvt.xftAntialias:      true
+URxvt*loginShell:        true
+URxvt*saveLines:         4000
+URxvt*scrollBar:         false
+URxvt*tintColor:         #ffffff
+URxvt*underlineColor:    #86a2be
+URxvt*perl-ext-common:   default,matcher
+URxvt*matcher.button:    1
+URxvt*matcher.pattern.1: \bwww\.[\w-]\.[\w./?&@#-]*[\w/-]
+URxvt*urlLauncher:       chromium
+URxvt*iconFile:          /usr/share/icons/oxygen/16x16/apps/utilities-terminal.png
+URxvt.perl-ext-common:   default
+!,tabbedex
 
 !
 ! !black text
-urxvt*color0:           #242424
-urxvt*color8:           #cdb5cd
+URxvt*color0:           #242424
+URxvt*color8:           #cdb5cd
 ! !red text
-urxvt*color1:           #c11b17
-urxvt*color9:           #c11b17
+URxvt*color1:           #c11b17
+URxvt*color9:           #c11b17
 ! !green text
-urxvt*color2:           #97b26b
-urxvt*color10:          #c5f779
+URxvt*color2:           #97b26b
+URxvt*color10:          #c5f779
 ! !yellow text
-urxvt*color3:           #cdcda1
-urxvt*color11:          #ffffaf
+URxvt*color3:           #cdcda1
+URxvt*color11:          #ffffaf
 ! !blue text
-urxvt*color4:           #86a2be
-urxvt*color12:          #98afd9
+URxvt*color4:           #86a2be
+URxvt*color12:          #98afd9
 ! !magenta text
-urxvt*color5:           #d9b798
-urxvt*color13:          #d7d998
+URxvt*color5:           #d9b798
+URxvt*color13:          #d7d998
 ! !cyan text
-urxvt*color6:           #a1b5cd
-urxvt*color14:          #a1b5cd
-urxvt*color7:           #ffffff
-urxvt*color15:          #dedede
+URxvt*color6:           #a1b5cd
+URxvt*color14:          #a1b5cd
+URxvt*color7:           #ffffff
+URxvt*color15:          #dedede
