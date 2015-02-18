@@ -18,6 +18,7 @@
     df = diff
     pul = pull
     puhs = push
+    pus = push
     l  = log --decorate --graph --oneline
     lg = log --decorate --graph --oneline
     today = log --since=midnight --author='Cristian Maureira Fredes <cmaurei@aei.mpg.de>' --oneline

@@ -1,4 +1,4 @@
-Xft.dpi:        75
+!Xft.dpi:        100
 Xft.antialias:  true
 Xft.rgba:       rgb
 Xft.hinting:    true
@@ -13,12 +13,12 @@ URxvt*imLocale:          en_US.UTF-8
 URxvt*foreground:        grey90
 URxvt*cursorBlink:       true
 URxvt*depth:             32
-URxvt*font:              xft:Droid Sans Mono:style=Regular:antialias=true;pixelsize=11, \
-                         xft:Inconsolata for Powerline:antialias=true;size=11,\
+URxvt*font:              xft:Droid Sans Mono:style=Regular:antialias=true;size=10, \
+                         xft:Inconsolata for Powerline:antialias=true;size=10,\
+                         xft:DejaVu Sans Mono:style=Book:antialias=true:size=10
+URxvt*boldFont:          xft:Droid Sans Mono:antialias=true;size=11, \
+                         xft:Inconsolata for Powerline:antialias=true;size=11, \
                          xft:DejaVu Sans Mono:style=Book:antialias=true:size=11
-URxvt*boldFont:          xft:Droid Sans Mono:antialias=true;size=13, \
-                         xft:Inconsolata for Powerline:antialias=true;size=13, \
-                         xft:DejaVu Sans Mono:style=Book:antialias=true:size=13
 URxvt*background:        #242424
 URxvt*geometry:          90x30
 URxvt.inheritPixmap:     false
@@ -29,13 +29,20 @@ URxvt*saveLines:         4000
 URxvt*scrollBar:         false
 URxvt*tintColor:         #ffffff
 URxvt*underlineColor:    #86a2be
-URxvt*perl-ext-common:   default,matcher
 URxvt*matcher.button:    1
 URxvt*matcher.pattern.1: \bwww\.[\w-]\.[\w./?&@#-]*[\w/-]
 URxvt*urlLauncher:       chromium
 URxvt*iconFile:          /usr/share/icons/oxygen/16x16/apps/utilities-terminal.png
-URxvt.perl-ext-common:   default
-!,tabbedex
+URxvt.perl-ext-common:   default,matcher,tabbedex,font-size
+URxvt.tabbed.autohide:   true
+URXvt.tabbed.reopen-on-close: yes
+!URxvt.tabbed.new-button: true
+URxvt.iso14755:          false
+URxvt.iso14755_52:       false
+URxvt.keysym.C-Up:       perl:font-size:increase
+URxvt.keysym.C-Down:     perl:font-size:decrease
+URxvt.keysym.C-S-Up:     perl:font-size:incglobal
+URxvt.keysym.C-S-Down:   perl:font-size:decglobal
 
 !
 ! !black text

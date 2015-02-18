@@ -116,8 +116,8 @@ export PATH=$PATH:~/bin
 
 export GIT_PS1_SHOWDIRTYSTATE=1
 export HISTIGNORE="&:[bf]g:exit"
-export VISUAL=vim
-export BROWSER=chromium
+export VISUAL="vim"
+export BROWSER="firefox"
 export PAGER=less
 export MANPAGER=less
 export EDITOR=vim
@@ -134,7 +134,7 @@ export GLOBUS_LOCATION=/opt/globus
 alias android-connect='sudo mtpfs -o allow_other /media/nexus4'
 alias android-disconnect='sudo umount /media/nexus4'
 alias android-disconnect2='sudo fusermount -u /media/nexus4'
-alias globus='source $GLOBUS_LOCATION/etc/globus-user-env.sh'
+alias globus='source $GLOBUS_LOCATION/share/globus-user-env.sh'
 
 
 alias ls="ls --color -CF --group-directories-first"
