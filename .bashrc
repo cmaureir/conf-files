@@ -70,6 +70,8 @@ function installed(){
 }
 
 # Update system
+#alias pacman='pacman --color=always'
+#alias yaourt='yaourt --color=always'
 function up(){
     yaourt -Syy
     yaourt -Su --noconfirm
@@ -95,7 +97,7 @@ function orphans(){
 
 # Remove tmp vim files to remember history
 function clean-un(){
-    for i in $(find . | grep "\.un~")
+    for i in $(find . | grep --color=never "\.un~")
     do
         rm -f $i
     done
@@ -103,7 +105,7 @@ function clean-un(){
 
 # Remove .swp files from some directory
 function clean-swp(){
-    for i in $(find . | grep "\.swp")
+    for i in $(find . | grep --color=never "\.swp")
     do
         rm -f $i
     done
@@ -129,11 +131,13 @@ export GOPATH=~/.go
 export GOROOT=/usr/lib/go
 export GOOS=linux
 export GLOBUS_LOCATION=/opt/globus
+alias grep="grep --color=always"
+export LESS="-R"
 
 # Connect my cellphone
-alias android-connect='sudo mtpfs -o allow_other /media/nexus4'
-alias android-disconnect='sudo umount /media/nexus4'
-alias android-disconnect2='sudo fusermount -u /media/nexus4'
+alias android-connect='sudo mtpfs -o allow_other /media/oneplus'
+alias android-disconnect='sudo umount /media/oneplus'
+alias android-disconnect2='sudo fusermount -u /media/oneplus'
 alias globus='source $GLOBUS_LOCATION/share/globus-user-env.sh'
 
 
@@ -143,10 +147,12 @@ alias mv="mv -i"
 alias cp="cp -i"
 
 # Fixing errors on calling vim
-alias vi="nvim"
-alias vm="nvim"
-alias bim="nvim"
-alias bm="nvim"
+alias vi="vim"
+alias vm="vim"
+alias bim="vim"
+alias bm="vim"
+
+alias dup="du -sch .[!.]* * |sort -h"
 
 ## Python
 #alias python='python2'
@@ -156,3 +162,6 @@ export  PULSE_LATENCY_MSEC=60
 
 # GSR
 export PYTHONPATH=$PYTHONPATH:/home/cmaureir/repos/gadget-snapshot-reader
+
+# Qt
+export QT_QPA_PLATFORMTHEME="qt5ct"
