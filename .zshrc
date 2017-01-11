@@ -114,7 +114,7 @@ export QT_QPA_PLATFORMTHEME="qt5ct"
 export  PULSE_LATENCY_MSEC=60
 
 # GSR
-#export PYTHONPATH=$PYTHONPATH:~/repos/gadget-snapshot-reader
+export PYTHONPATH=$PYTHONPATH:~/repos/gadget-snapshot-reader
 export PATH=~/bin:$PATH
 
 # Ruby
@@ -153,6 +153,12 @@ alias maek="make"
 alias mke="make"
 alias mek="make"
 
+# Fixing errors on calling ls
+alias lsls='ls'
+alias sls='ls'
+alias lls='ls'
+
+
 # Amazing du
 alias dup="du -sch .[!.]* * |sort -h"
 alias grep="grep --color=always"
@@ -179,3 +185,6 @@ alias proxy="grid-proxy-init -bits 1024"
 
 # Fix Java app
 export _JAVA_AWT_WM_NONREPARENTING=1
+
+# Fix Java font
+#export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=gasp'

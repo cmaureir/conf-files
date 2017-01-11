@@ -5,28 +5,32 @@ Xft.hinting:    true
 Xft.autohint:  true
 Xft.hintstyle:  hintfull
 
-
 Xcursor.size: 16
 
 URxvt*termName:          URxvt
 URxvt*imLocale:          en_US.UTF-8
-URxvt*foreground:        grey90
+URxvt*foreground:        #839496
+!URxvt*foreground:        #b4ccce
 URxvt*cursorBlink:       true
 URxvt*depth:             32
-URxvt*font:              xft:Droid Sans Mono:style=Regular:antialias=true;size=10, \
-                         xft:Inconsolata for Powerline:antialias=true;size=10,\
-                         xft:DejaVu Sans Mono:style=Book:antialias=true:size=10
-URxvt*boldFont:          xft:Droid Sans Mono:antialias=true;size=11, \
-                         xft:Inconsolata for Powerline:antialias=true;size=11, \
-                         xft:DejaVu Sans Mono:style=Book:antialias=true:size=11
-URxvt*background:        #242424
+!URxvt*font:              xft:Inconsolata for Powerline:pixelsize=17
+URxvt*font:              xft:Droid Sans Mono for Powerline:size=12
+!URxvt*italicFont:        xft:Hasklig Medium:pixelsize=12, xft:Fira Sans:pixelsize=12
+!URxvt*boldFont:          xft:Hasklig Semibold:pixelsize=12, xft:Fira Sans:pixelsize=12
+!URxvt*boldItalicFont:    xft:Hasklig Light:pixelsize=12, xft:Fira Sans:pixelsize=12
+!URxvt*background:        #6d6d6d
+URxvt*background:        #232323
 URxvt*geometry:          90x30
 URxvt.inheritPixmap:     false
 URxvt*letterSpace:       -1
 URxvt.xftAntialias:      true
+URxvt*fading:            30
 URxvt*loginShell:        true
 URxvt*saveLines:         4000
 URxvt*scrollBar:         false
+URxvt*scrollTtyOutput:   false
+URxvt*scrollWithBuffer:  false
+URxvt*skipScroll:        true
 URxvt*tintColor:         #ffffff
 URxvt*underlineColor:    #86a2be
 URxvt*matcher.button:    1
@@ -39,14 +43,14 @@ URXvt.tabbed.reopen-on-close: yes
 !URxvt.tabbed.new-button: true
 URxvt.iso14755:          false
 URxvt.iso14755_52:       false
-URxvt.keysym.C-Up:       perl:font-size:increase
-URxvt.keysym.C-Down:     perl:font-size:decrease
-URxvt.keysym.C-S-Up:     perl:font-size:incglobal
-URxvt.keysym.C-S-Down:   perl:font-size:decglobal
+URxvt.keysym.C-Up:       font-size:increase
+URxvt.keysym.C-Down:     font-size:decrease
+URxvt.keysym.C-S-Up:     font-size:incglobal
+URxvt.keysym.C-S-Down:   font-size:decglobal
 
 !
 ! !black text
-URxvt*color0:           #242424
+URxvt*color0:           #6d6d6d
 URxvt*color8:           #cdb5cd
 ! !red text
 URxvt*color1:           #c11b17

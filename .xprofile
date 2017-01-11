@@ -1,21 +1,22 @@
 Section "InputClass"
-    Identifier      "Keyboard Defaults"
+    Identifier "Keyboard Defaults"
     MatchIsKeyboard "yes"
-    Option          "XkbLayout"  "us"
-    Option          "XkbVariant" "altgr-intl"
+    Option  "XkbLayout" "us"
+    Option  "XkbVariant" "altgr-intl"
 EndSection
+
+# Xdefaults
+[[ -f ~/.Xdefaults ]] && xrdb -merge ~/.Xdefaults
+
+# lock the screen after 5 mins.
+ [ -f /usr/bin/xautolock ] && [ -f /usr/bin/i3lock ] && xautolock -locker 'i3lock -e -c 000000' -time 15 -killer 'systemctl suspend' -killtime 30 &
+
 
 # cursor
 xsetroot -cursor_name left_ptr
 
 # Wallpaper
-feh --bg-scale /home/cmaureir/img/wallpaper-2878364.jpg &
-
-# Vim colorscheme
-sh ~/.vim/bundle/gruvbox/gruvbox_256palette.sh
-
-# Pulse
-start-pulseaudio-x11
+feh --bg-scale ~/img/MM_Wallpaper_03.jpg &
 
 # Keyboard layout
 setxkbmap -rules evdev -model evdev -layout us -variant altgr-intl &
@@ -23,10 +24,18 @@ setxkbmap -rules evdev -model evdev -layout us -variant altgr-intl &
 # Trayer, for systray icons
 exec trayer --edge top --align right --widthtype pixel --width 100 --SetDockType true --SetPartialStrut true --transparent true --alpha 0 --tint 0x000000 --expand true --heighttype pixel --height 16 &
 
-# NetworkManager applet
-(/usr/bin/nm-applet --sm-disable) &
+eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
+export SSH_AUTH_SOCK
 
 # Batterymon
 (/usr/bin/batterymon) &
 
+# NetworkManager applet
+(/usr/bin/nm-applet --sm-disable) &
+
+# systemd
+source /etc/X11/xinit/xinitrc.d/50-systemd-user.sh
+
+
 exec xmonad
+#exec startkde

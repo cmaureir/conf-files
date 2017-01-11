@@ -6,7 +6,7 @@
 
 [user]
     name = Cristian Maureira-Fredes
-    email = cmaurei@aei.mpg.de
+    email = cmaureirafredes@gmail.com
 
 [alias]
     a  = add
@@ -21,6 +21,6 @@
     pus = push
     l  = log --decorate --graph --oneline
     lg = log --decorate --graph --oneline
-    today = log --since=midnight --author='Cristian Maureira Fredes <cmaurei@aei.mpg.de>' --oneline
+    today = log --since=midnight --author='Cristian Maureira Fredes <cmaureirafredes@gmail.com>' --oneline
 [push]
     default = simple
