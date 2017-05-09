@@ -2,11 +2,12 @@
   focus = system
   suppress_multiple_term_dialog = True
   tab_position = bottom
-  title_font = Droid Sans Mono for Powerline 10
+  title_font = Fira Mono 10
   title_transmit_bg_color = "#9c0c0d"
   title_use_system_font = False
 [keybindings]
   full_screen = <Ctrl><Shift>F11
+  help = <Primary>F1
   new_tab = <Super>Down
   new_window = <Ctrl><Shift>t
   next_tab = <Super>Right
@@ -22,13 +23,11 @@
 [plugins]
 [profiles]
   [[default]]
-    background_color = "#002b36"
+    background_color = "#2e3436"
     background_darkness = 0.7
-    background_image = None
     copy_on_selection = True
     cursor_color = "#839496"
     custom_command = 'echo \"foo#bar\"'
-    font = Droid Sans Mono for Powerline 10
-    foreground_color = "#839496"
-    palette = "#000000:#cd0000:#00cd00:#cdcd00:#0000cd:#cd00cd:#00cdcd:#faebd7:#404040:#ff0000:#00ff00:#ffff00:#0000ff:#ff00ff:#00ffff:#ffffff"
+    font = Fira Mono for Powerline 10
+    foreground_color = "#babdb6"
     use_system_font = False

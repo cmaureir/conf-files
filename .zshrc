@@ -10,14 +10,18 @@ zle -N down-line-or-beginning-search
 
 
 # Bindkeys
-bindkey "${terminfo[khome]}" beginning-of-line
-bindkey "${terminfo[kend]}"  end-of-line
+bindkey -v
+#bindkey "${terminfo[khome]}" beginning-of-line
+#bindkey "${terminfo[kend]}"  end-of-line
 bindkey "${terminfo[kdch1]}" delete-char
 bindkey "${terminfo[kich1]}" overwrite-mode
 bindkey "${terminfo[kcuu1]}" up-line-or-beginning-search
 bindkey "${terminfo[kcud1]}" down-line-or-beginning-search
 bindkey "${terminfo[kpp]}" up-line-or-history
 bindkey "${terminfo[knp]}" down-line-or-history
+bindkey '^[[H'  beginning-of-line
+bindkey '^[[F'  end-of-line
+bindkey '^R' history-incremental-search-backward
 
 
 # set up command prompt
@@ -118,7 +122,7 @@ export PYTHONPATH=$PYTHONPATH:~/repos/gadget-snapshot-reader
 export PATH=~/bin:$PATH
 
 # Ruby
-export PATH=$PATH:~/.gem/ruby/2.3.0/bin
+export PATH=$PATH:/home/cmaureir/.gem/ruby/2.4.0/bin
 
 # Go
 export GOPATH=~/.go
@@ -188,3 +192,14 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 
 # Fix Java font
 #export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=gasp'
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+export LD_LIBRARY_PATH=/home/cmaureir/repos/splash/giza/src/.libs/
+
+# PlayOnLinux
+export __GL_THREADED_OPTIMIZATIONS=0
+export WINEDEBUG=-all
+export LOGFILE=/dev/null
+export __GL_SYNC_TO_VBLANK=0
+export __GL_YIELD="NOTHING"
