@@ -2,6 +2,8 @@ autoload -U colors && colors
 autoload -U compinit && compinit
 setopt PROMP_TSUBST
 setopt nonomatch # Avoid expanding the "*"
+setopt NO_HUP
+setopt NO_CHECK_JOBS
 
 # History
 autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
@@ -195,7 +197,6 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
-export LD_LIBRARY_PATH=/home/cmaureir/repos/splash/giza/src/.libs/
 
 # PlayOnLinux
 export __GL_THREADED_OPTIMIZATIONS=0
