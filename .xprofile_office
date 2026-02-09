@@ -1,0 +1,45 @@
+#Section "InputClass"
+#    Identifier      "Keyboard Defaults"
+#    MatchIsKeyboard "yes"
+#    Option          "XkbLayout"  "us"
+#    Option          "XkbVariant" "altgr-intl"
+#EndSection
+
+# cursor
+xsetroot -cursor_name left_ptr
+
+# Notification
+dunst &
+
+# Wallpaper
+feh --bg-scale ~/img/tree.jpg &
+
+# Keyboard layout
+setxkbmap -rules evdev -model evdev -layout us -variant altgr-intl &
+xmodmap ~/.Xmodmap &
+
+# Trayer, for systray icons
+stalonetray &
+
+# SSH
+eval `ssh-agent`
+
+
+# NetworkManager applet
+(/usr/bin/nm-applet --sm-disable) &
+
+# Screens
+xrandr --output DP-0 --mode 2560x1440  --rotate normal --pos 1920x0 --output DP-2 --rotate normal --auto --pos 0x0
+
+# XDG conf
+#exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+export XDG_CURRENT_DESKTOP=XMONAD
+export BROWSER=firefox
+export QT_QPA_PLATFORMTHEME=kde
+export QT_STYLE_OVERRIDE=breeze
+/usr/lib/xdg-desktop-portal-kde &
+/usr/lib/xdg-desktop-portal &
+
+exec xmonad
+#exec startplasma-x11
+#exec cinnamon-session
