@@ -5,9 +5,10 @@
     // Archived modules
     // "custom/gpu", "bluetooth",  "custom/weather", "temperature", "hyprland/window"
     // Choose the order of the modules
-    "modules-left": [ "clock", "idle_inhibitor"],
+    "modules-left": [ "clock", "custom/clock-cl", "custom/clock-ny", "custom/clock-sf", "idle_inhibitor"],
     "modules-center": ["hyprland/workspaces"],
-    "modules-right": [ "cpu", "temperature", "custom/gpu", "pulseaudio", "bluetooth", "network", "tray"],
+    //"modules-right": [ "cpu", "temperature", "custom/gpu", "pulseaudio", "bluetooth", "network", "tray"],
+    "modules-right": [ "cpu", "temperature", "custom/gpu", "pulseaudio", "bluetooth", "tray"],
     // Modules configuration
     "hyprland/workspaces": {
         "format": "{icon}",
@@ -17,9 +18,26 @@
             "3": "3",
             "4": "4",
             "5": "5",
+            "6": "6",
+            "7": "7",
+            "8": "8",
+            "9": "9",
             "active": "",
             "focused": "",
-            "default": ""
+            "default": "o"
+        },
+        "persistent-workspaces": {
+            "*": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9
+            ]
         }
     },
     "hyprland/window": {
@@ -35,13 +53,13 @@
             "enabled": "",
             "disabled": ""
         },
-        "on-click": "blueberry"
+        "on-click": "blueman-manager"
     },
     "idle_inhibitor": {
         "format": "{icon}",
         "format-icons": {
-            "activated": "",
-            "deactivated": ""
+            "activated": " ",
+            "deactivated": " "
         },
         "tooltip": "true"
     },
@@ -50,16 +68,31 @@
         "spacing": 5
     },
     "clock": {
-        "format": "  {:%H:%M   %e %b}",
+        "format": "🍺  {:%H:%M    %e %b}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "today-format": "<b>{}</b>",
         "on-click": "gnome-calendar"
     },
+    "custom/clock-cl": {
+        "exec": "TZ='America/Santiago' date +'%H:%M 🗿 |'",
+        "interval": 10,
+        "format": "{}"
+    },
+    "custom/clock-ny": {
+        "exec": "TZ='America/New_York' date +'%H:%M 🗽 |'",
+        "interval": 10,
+        "format": "{}"
+    },
+    "custom/clock-sf": {
+        "exec": "TZ='America/California' date +'%H:%M 🌉 |'",
+        "interval": 10,
+        "format": "{}"
+    },
     "cpu": {
         "interval": "1",
-        "format": "   {max_frequency}GHz <span color=\"darkgray\">| {usage}%</span>",
-        "max-length": 13,
-        "min-length": 13,
+        "format": "🧠  {max_frequency}GHz <span color=\"darkgray\">| {usage}%</span>",
+        "max-length": 15,
+        "min-length": 15,
         "on-click": "kitty -e htop --sort-key PERCENT_CPU",
         "tooltip": false
     },
@@ -68,9 +101,9 @@
         "interval": "4",
         "hwmon-path": "/sys/class/hwmon/hwmon0/temp1_input",
         "critical-threshold": 74,
-        "format-critical": "  {temperatureC}°C",
+        "format-critical": "⚠️ {temperatureC}°C",
         "format": "{icon}  {temperatureC}°C",
-        "format-icons": ["", "", ""],
+        "format-icons": ["", "🌡️", ""],
         "max-length": 7,
         "min-length": 7
     },
@@ -87,7 +120,7 @@
     },
     "pulseaudio": {
         "scroll-step": 3, // %, can be a float
-        "format": "{icon} {volume}% {format_source}",
+        "format": "{icon}  {volume}% {format_source}",
         "format-bluetooth": "{volume}% {icon} {format_source}",
         "format-bluetooth-muted": " {icon} {format_source}",
         "format-muted": " {format_source}",
@@ -98,10 +131,9 @@
         "format-icons": {
             "headphone": "",
             "hands-free": "",
-            "headset": "",
+            "headset": " ",
             "phone": "",
             "portable": "",
-            "car": "",
             "default": ["", "", ""]
         },
         "on-click": "pavucontrol",
@@ -114,7 +146,7 @@
     "custom/gpu": {
       "exec": "$HOME/.config/waybar/custom_modules/custom-gpu.sh",
       "return-type": "json",
-      "format": " GPU {}",
+      "format": "🕹️ {}",
       "interval": 2,
       "tooltip": "{tooltip}",
       "max-length": 30,

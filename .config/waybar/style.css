@@ -156,7 +156,7 @@
 #workspaces button {
     font-weight: bold; /* Somewhy the bar-wide setting is ignored*/
     padding: 0;
-    /*color: #999;*/
+    color: #ffffff;
     opacity: 0.3;
     background: none;
     font-size: 1em;
@@ -243,7 +243,7 @@
     color: @nord_dark_font;
 }
 #custom-cpugovernor.perf {
-    
+
 }
 #temperature {
     background-color: @nord_bg;
