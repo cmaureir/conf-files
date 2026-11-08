@@ -1,15 +1,9 @@
 {
-    "layer": "top", // Waybar at top layer
-    "position": "top", // Waybar position (top|bottom|left|right)
-    // "height": 36, // Waybar height (to be removed for auto height)
-    // Archived modules
-    // "custom/gpu", "bluetooth",  "custom/weather", "temperature", "hyprland/window"
-    // Choose the order of the modules
-    "modules-left": [ "clock", "custom/clock-cl", "custom/clock-ny", "custom/clock-sf", "idle_inhibitor"],
+    "layer": "top",
+    "position": "top",
+    "modules-left": [ "clock", "clock#cl", "clock#ny", "clock#sf", "custom/weather", "idle_inhibitor"],
     "modules-center": ["hyprland/workspaces"],
-    //"modules-right": [ "cpu", "temperature", "custom/gpu", "pulseaudio", "bluetooth", "network", "tray"],
-    "modules-right": [ "cpu", "temperature", "custom/gpu", "pulseaudio", "bluetooth", "tray"],
-    // Modules configuration
+    "modules-right": [ "cpu", "memory", "temperature", "custom/gpu", "backlight", "pulseaudio", "battery", "custom/batalert", "tray"],
     "hyprland/workspaces": {
         "format": "{icon}",
         "format-icons": {
@@ -45,16 +39,6 @@
         "max-length": 50,
         "tooltip": false
     },
-    "bluetooth": {
-        "interval": 30,
-        "format": "{icon}",
-        // "format-alt": "{status}",
-        "format-icons": {
-            "enabled": "",
-            "disabled": ""
-        },
-        "on-click": "blueman-manager"
-    },
     "idle_inhibitor": {
         "format": "{icon}",
         "format-icons": {
@@ -63,8 +47,44 @@
         },
         "tooltip": "true"
     },
+    "battery": {
+        "bat": "BAT0",
+        "interval": 30,
+        "states": {
+            "good": 100,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon}  {capacity}%",
+        "format-charging": "  {capacity}%",
+        "format-plugged": "  {capacity}%",
+        "format-full": "  {capacity}%",
+        "format-icons": ["", "", "", "", ""],
+        "tooltip-format": "{timeTo}\n{power}W"
+    },
+    "custom/batalert": {
+        "exec": "$HOME/.config/waybar/custom_modules/battery-alert.sh",
+        "return-type": "json",
+        "interval": 30,
+        "tooltip": false
+    },
+    "memory": {
+        "interval": 5,
+        "format": "💾 {percentage}%",
+        "tooltip-format": "{used:0.1f}GiB / {total:0.1f}GiB used\nSwap: {swapUsed:0.1f}GiB / {swapTotal:0.1f}GiB",
+        "states": {
+            "warning": 80,
+            "critical": 92
+        },
+        "on-click": "kitty -e htop --sort-key PERCENT_MEM"
+    },
+    "backlight": {
+        "format": "🔆 {percent}%",
+        "on-scroll-up": "brightnessctl set 5%+",
+        "on-scroll-down": "brightnessctl set 5%-",
+        "tooltip": false
+    },
     "tray": {
-        //"icon-size": 11,
         "spacing": 5
     },
     "clock": {
@@ -73,20 +93,20 @@
         "today-format": "<b>{}</b>",
         "on-click": "gnome-calendar"
     },
-    "custom/clock-cl": {
-        "exec": "TZ='America/Santiago' date +'%H:%M 🗿 |'",
-        "interval": 10,
-        "format": "{}"
+    "clock#cl": {
+        "timezone": "America/Santiago",
+        "format": "{:%H:%M} 🗿 |",
+        "tooltip": false
     },
-    "custom/clock-ny": {
-        "exec": "TZ='America/New_York' date +'%H:%M 🗽 |'",
-        "interval": 10,
-        "format": "{}"
+    "clock#ny": {
+        "timezone": "America/New_York",
+        "format": "{:%H:%M} 🗽 |",
+        "tooltip": false
     },
-    "custom/clock-sf": {
-        "exec": "TZ='America/California' date +'%H:%M 🌉 |'",
-        "interval": 10,
-        "format": "{}"
+    "clock#sf": {
+        "timezone": "America/Los_Angeles",
+        "format": "{:%H:%M} 🌉 |",
+        "tooltip": false
     },
     "cpu": {
         "interval": "1",
@@ -97,9 +117,9 @@
         "tooltip": false
     },
     "temperature": {
-        //"thermal-zone": 1,
         "interval": "4",
-        "hwmon-path": "/sys/class/hwmon/hwmon0/temp1_input",
+        "hwmon-path-abs": "/sys/devices/platform/coretemp.0/hwmon",
+        "input-filename": "temp1_input",
         "critical-threshold": 74,
         "format-critical": "⚠️ {temperatureC}°C",
         "format": "{icon}  {temperatureC}°C",
@@ -107,25 +127,12 @@
         "max-length": 7,
         "min-length": 7
     },
-    "network": {
-        // "interface": "wlan0", // (Optional) To force the use of this interface,
-        "format-wifi": "  {essid}",
-        "format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
-        "format-linked": "{ifname} (No IP) ",
-        "format-disconnected": "",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}",
-        "family": "ipv4",
-        "tooltip-format-wifi": "  {ifname} @ {essid}\nIP: {ipaddr}\nStrength: {signalStrength}%\nFreq: {frequency}MHz\n {bandwidthUpBits}  {bandwidthDownBits}",
-        "tooltip-format-ethernet": " {ifname}\nIP: {ipaddr}\n {bandwidthUpBits}  {bandwidthDownBits}"
-    },
     "pulseaudio": {
-        "scroll-step": 3, // %, can be a float
+        "scroll-step": 3,
         "format": "{icon}  {volume}% {format_source}",
         "format-bluetooth": "{volume}% {icon} {format_source}",
         "format-bluetooth-muted": " {icon} {format_source}",
-        "format-muted": " {format_source}",
-        //"format-source": "{volume}% ",
-        //"format-source-muted": "",
+        "format-muted": "  Muted {format_source}",
         "format-source": "",
         "format-source-muted": "",
         "format-icons": {
@@ -134,6 +141,7 @@
             "headset": " ",
             "phone": "",
             "portable": "",
+            "car": "",
             "default": ["", "", ""]
         },
         "on-click": "pavucontrol",
@@ -149,9 +157,8 @@
       "format": "🕹️ {}",
       "interval": 2,
       "tooltip": "{tooltip}",
-      "max-length": 30,
-      "min-length": 19,
-      "on-click": "powerupp"
+      "max-length": 20,
+      "min-length": 14
 
-    },
+    }
 }
