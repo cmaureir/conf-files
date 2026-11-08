@@ -4,9 +4,9 @@
 FULLSCREEN=$(hyprctl activewindow -j | jq '.fullscreen')
 
 if [ "$FULLSCREEN" != "0" ]; then
-    hyprctl dispatch fullscreen 1   # exit fullscreen
-    hyprctl dispatch cyclenext      # cycle to next window
-    hyprctl dispatch fullscreen 1   # re-enter fullscreen
+    hyprctl dispatch 'hl.dsp.window.fullscreen({ mode = "maximized" })'   # exit fullscreen
+    hyprctl dispatch 'hl.dsp.window.cycle_next()'                         # cycle to next window
+    hyprctl dispatch 'hl.dsp.window.fullscreen({ mode = "maximized" })'   # re-enter fullscreen
 else
-    hyprctl dispatch cyclenext
+    hyprctl dispatch 'hl.dsp.window.cycle_next()'
 fi
